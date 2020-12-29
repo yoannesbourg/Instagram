@@ -21,14 +21,16 @@ function showComment (arg = null) {
     for (i = 0; i < comments.length; i++){
         if (i === arg) {
             $('#list').append(
-                `<li ><input type="text"  class="input-edit" value="${comments[i]}" onkeydown="pressEnterEdit(event, ${i})">
+                `<li ><b>User: </b><input type="text"  class="input-edit" value="${comments[i]}" onkeydown="pressEnterEdit(event, ${i})">
                 <button type="button" onclick="editComment(${i})">Edit</button></li>`
                 )
             
         } 
         else {
             $('#list').append(
-                `<li id="${i}" onclick="showComment(${i})">${comments[i]}
+                `<li id="${i}" onclick="showComment(${i})">
+                <div class="photo-profile"></div>
+                <b>User: </b>${comments[i]}
                 <span onclick="showComment(${i})"> 
                 <a  href="#" onclick="removeComment(${i})">
                 delete
